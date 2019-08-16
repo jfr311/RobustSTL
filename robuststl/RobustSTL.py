@@ -1,4 +1,3 @@
-from utils import *
 from cvxopt import matrix
 
 import numpy as np 
