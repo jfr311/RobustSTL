@@ -114,6 +114,17 @@ def _RobustSTL(input, season_len, reg1=10.0, reg2= 0.5, K=2, H=5, dn1=1., dn2=1.
     return [input, trends_hat, seasons_hat, remainders_hat]
 
 def RobustSTL(input, season_len, reg1=10.0, reg2= 0.5, K=2, H=5, dn1=1., dn2=1., ds1=50., ds2=1.):
+        '''
+    args:
+    - input: time series as a numpy array
+    - season_len: length of seasonal period
+    - reg1: first order regularization parameter for trend extraction
+    - reg2: second order regularization parameter for trend extraction
+    - K: number of past season samples in seasonaility extraction
+    - H: number of neighborhood in seasonality extraction
+    - dn1, dn2 : hyperparameter of bilateral filter in denoising step.
+    - ds1, ds2 : hypterparameter of bilarteral filter in seasonality extraction step.
+    '''
     if np.ndim(input) < 2:
         return _RobustSTL(input, season_len, reg1, reg2, K, H, dn1, dn2, ds1, ds2)
     
